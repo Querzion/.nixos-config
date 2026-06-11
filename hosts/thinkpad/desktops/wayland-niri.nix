@@ -1,12 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  # Niri: scrollable-tiling Wayland compositor
-  programs.niri = {
-    enable = true;
-  };
+  programs.niri.enable = true;
 
-  # Display manager
   services.greetd = {
     enable = true;
     settings = {
@@ -20,24 +16,33 @@
   environment.sessionVariables = {
     XDG_SESSION_TYPE    = "wayland";
     XDG_CURRENT_DESKTOP = "niri";
-    NIXOS_OZONE_WL      = "1";   # Electron/VSCode Wayland
-    MOZ_ENABLE_WAYLAND  = "1";   # Firefox
+    NIXOS_OZONE_WL      = "1";
+    MOZ_ENABLE_WAYLAND  = "1";
   };
 
   environment.systemPackages = with pkgs; [
-    # Niri essentials
-    xwayland-satellite   # XWayland support for legacy apps
-    waybar               # status bar
-    fuzzel               # app launcher
-    mako                 # notifications
-    swaylock             # screen lock
-    swayidle             # idle management
-    wl-clipboard         # clipboard
-    grim                 # screenshots
-    slurp                # screen region selector
-    brightnessctl        # backlight (also in utilities but needed here)
-
-    # Theming
+    alacritty
+    fuzzel
+    waybar
+    swaybg
+    mako
+    libnotify
+    grim
+    slurp
+    swaylock
+    swayidle
+    brightnessctl
+    xwayland-satellite
+    wl-clipboard
     adwaita-icon-theme
+    papirus-icon-theme
+    gtk3
+    dconf
+    gsettings-desktop-schemas
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 }
