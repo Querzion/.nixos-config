@@ -76,7 +76,7 @@
       # General
       # --------------------------
       alias ls='ls --color=auto -hF'
-      alias ll='ls -lah'
+      alias ll='ls -lah --color=auto'
       alias grep='grep --color=auto'
       alias df='df -h'
       alias du='du -h'
