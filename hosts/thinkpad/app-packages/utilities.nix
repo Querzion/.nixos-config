@@ -17,6 +17,7 @@
 
     # AppImage support
     appimage-run
+    qbittorrent
 
     # System
     gparted
