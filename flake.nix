@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    superfile.url = "github:yorukot/superfile";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -23,6 +25,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.querzion = import ./home/querzion/home.nix;
           }
         ];
