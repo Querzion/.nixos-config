@@ -12,7 +12,8 @@
   home.packages = with pkgs; [
     btop
     eza
-    inputs.superfile.packages.${pkgs.system}.default
+    #inputs.superfile.packages.${pkgs.system}.default
+    superfile
   ];
 
   home.stateVersion = "25.05";

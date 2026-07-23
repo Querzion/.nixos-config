@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    superfile.url = "github:yorukot/superfile";
+    #superfile.url = "github:yorukot/superfile";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
