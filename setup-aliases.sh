@@ -21,6 +21,13 @@ alias nos-gnome='sudo nixos-rebuild switch --flake $CFG#thinkpad-gnome'
 alias nos-cosmic='sudo nixos-rebuild switch --flake $CFG#thinkpad-cosmic'
 alias nos-xfce='sudo nixos-rebuild switch --flake $CFG#thinkpad-xfce'
 
+alias nos-desktop-niri='sudo nixos-rebuild switch --flake $CFG#desktop-niri'
+alias nos-desktop-plasma='sudo nixos-rebuild switch --flake $CFG#desktop-plasma'
+alias nos-desktop-gnome='sudo nixos-rebuild switch --flake $CFG#desktop-gnome'
+alias nos-desktop-cosmic='sudo nixos-rebuild switch --flake $CFG#desktop-cosmic'
+alias nos-desktop-xfce='sudo nixos-rebuild switch --flake $CFG#desktop-xfce'
+alias nos-desktop-hyprland='sudo nixos-rebuild switch --flake $CFG#desktop-hyprland'
+
 # --- Update / Upgrade ---
 alias nos-update='cd $CFG && nix flake update'
 alias nos-upgrade-niri='cd $CFG && nix flake update && sudo nixos-rebuild switch --flake .#thinkpad-niri'
