@@ -14,19 +14,26 @@
       # --------------------------
       export NIXOS_DOTFILES="~/.nixos-config"
       export NIXOS_HOST="querzion"
-      export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
       export PATH="$PATH:$HOME/.dotnet/tools"
 
       # --------------------------
       # NixOS Flake management
       # --------------------------
-      alias nos-niri='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-niri'
-      alias nos-plasma='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-plasma'
-      alias nos-gnome='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-gnome'
-      alias nos-cosmic='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-cosmic'
-      alias nos-xfce='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-xfce'
+      alias nos-laptop-niri='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-niri'
+      alias nos-laptop-plasma='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-plasma'
+      alias nos-laptop-gnome='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-gnome'
+      alias nos-laptop-cosmic='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-cosmic'
+      alias nos-laptop-xfce='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#thinkpad-xfce'
+
+      alias nos-desktop-niri='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-niri'
+      alias nos-desktop-plasma='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-plasma'
+      alias nos-desktop-gnome='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-gnome'
+      alias nos-desktop-cosmic='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-cosmic'
+      alias nos-desktop-xfce='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-xfce'
+      alias nos-desktop-hyprland='cd ~/.nixos-config && sudo nixos-rebuild switch --flake .#desktop-hyprland'
+
       alias nos-update='cd ~/.nixos-config && nix flake update'
-      alias nos-check='cd ~/.nixos-config && nixos-rebuild build --flake .#thinkpad-niri'
+      alias nos-laptop-check='cd ~/.nixos-config && nixos-rebuild build --flake .#thinkpad-niri'
 
       # --------------------------
       # Home Manager
