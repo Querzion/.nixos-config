@@ -1,49 +1,36 @@
 { config, pkgs, ... }:
+
 let
-  # Combine the two SDKs into a single derivation that contains both.
-  # `combinePackages` already puts every `bin/` directory on $PATH.
   dotnetSdks = with pkgs.dotnetCorePackages;
     combinePackages [ sdk_8_0 sdk_9_0 sdk_10_0 ];
 in
 {
-  ####################
-  # System Packages  #
-  ####################
   environment.systemPackages = with pkgs; [
-    # Editors & IDEs
     jetbrains.rider
     jetbrains.rust-rover
     jetbrains.webstorm
     vscode
 
-    # .NET
     dotnetSdks
 
-    # Rust
     rustup
 
-    # Node
     nodejs
     npm-check
 
-    # Python
     python3
     python3Packages.pip
 
-    # Git
     git
     gh
     lazygit
 
-    # Build tools
     gnumake
     gcc
 
-    # API tools
     postman
     insomnia
 
-    # Docker
     docker
     docker-compose
   ];
@@ -89,6 +76,11 @@ in
     # SDK's own binary every time.
   };
 
-  # Docker daemon
+  environment.variables.PATH = [
+    "${pkgs.dotnetCorePackages.sdk_10_0}/bin"
+    "${pkgs.dotnetCorePackages.sdk_9_0}/bin"
+    "${pkgs.dotnetCorePackages.sdk_8_0}/bin"
+  ];
+
   virtualisation.docker.enable = true;
 }
