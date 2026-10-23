@@ -3,13 +3,13 @@
 {
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       user = {
-        name  = "Slisk Lindqvist";
+        name = "Slisk Lindqvist";
         email = "slisk.lindqvist@querzion.com";
       };
-      pull.rebase = "false";
+      pull.rebase = false;
       credential.helper = "store";
     };
   };
