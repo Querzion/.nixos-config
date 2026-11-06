@@ -10,5 +10,6 @@
     ./security.nix
     ./utilities.nix
     ./video.nix
+    ./nfc.nix
   ];
 }
