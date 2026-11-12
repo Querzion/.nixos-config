@@ -1,15 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   vuetorrent = pkgs.stdenv.mkDerivation rec {
     pname = "vuetorrent";
     version = "latest-release"; # pin to a specific tag for reproducibility, e.g. "v2.24.0"
 
     src = pkgs.fetchFromGitHub {
-    owner = "VueTorrent";
-    repo = "VueTorrent";
-    rev = version;
-    sha256 = "sha256-UCkqy7ZSPDREYoXXrrEP0K2LaDZQqTcSNbXAPnN2X9k=";
-  };
+      owner = "VueTorrent";
+      repo = "VueTorrent";
+      rev = version;
+      sha256 = "sha256-UCkqy7ZSPDREYoXXrrEP0K2LaDZQqTcSNbXAPnN2X9k=";
+    };
 
     installPhase = ''
       mkdir -p $out
@@ -18,6 +18,14 @@ let
   };
 in
 {
+  programs.kdeconnect = {
+    enable = true;
+    package =
+      if config.services.desktopManager.gnome.enable
+      then pkgs.gnomeExtensions.gsconnect
+      else pkgs.kdePackages.kdeconnect-kde;
+  };
+
   environment.systemPackages = with pkgs; [
     # CLI essentials
     curl
