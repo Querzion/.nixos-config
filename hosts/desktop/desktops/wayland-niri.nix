@@ -20,6 +20,8 @@
     MOZ_ENABLE_WAYLAND  = "1";
   };
 
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     alacritty
     fuzzel

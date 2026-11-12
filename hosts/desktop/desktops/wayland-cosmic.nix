@@ -15,6 +15,8 @@
 
   services.geoclue2.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     libsecret
     wl-clipboard

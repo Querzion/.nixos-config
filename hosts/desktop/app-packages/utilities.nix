@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   vuetorrent = pkgs.stdenv.mkDerivation rec {
     pname = "vuetorrent";
@@ -18,14 +18,6 @@ let
   };
 in
 {
-  programs.kdeconnect = {
-    enable = true;
-    package =
-      if config.services.desktopManager.gnome.enable
-      then pkgs.gnomeExtensions.gsconnect
-      else pkgs.kdePackages.kdeconnect-kde;
-  };
-
   environment.systemPackages = with pkgs; [
     # CLI essentials
     curl

@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     wl-clipboard
+    gnomeExtensions.gsconnect
   ];
 
   # Remove default GNOME bloat

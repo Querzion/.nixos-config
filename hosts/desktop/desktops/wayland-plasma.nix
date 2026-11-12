@@ -15,6 +15,8 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     kdePackages.kate
     kdePackages.dolphin
